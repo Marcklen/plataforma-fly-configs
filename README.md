@@ -14,6 +14,8 @@ Este repositório é usado pelo **Config Server (Spring Cloud Config Server)** p
 ├── auth-api-dev.yml
 ├── usuario-api-dev.yml
 
+```
+
 ## 🛠️ Banco de Dados: H2 (Desenvolvimento) e PostgreSQL (Produção)
 
 Durante o desenvolvimento local, usei o banco de dados **H2 em memória** pela sua facilidade de uso e inicialização rápida — ideal para testes e desenvolvimento contínuo sem precisar de infraestrutura externa.
