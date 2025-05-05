@@ -10,6 +10,8 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
+    generate-unique-name: false
+
 
   jpa:
     hibernate:
