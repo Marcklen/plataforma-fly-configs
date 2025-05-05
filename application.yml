@@ -1,9 +1,10 @@
 spring:
-  apllication:
+  application:
     name: config-repo
   cloud:
     config:
       fail-fast: true
+
 logging:
-    level:
+  level:
     root: INFO
