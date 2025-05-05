@@ -1,3 +1,6 @@
+server:
+  port: 8088
+  
 spring:
   application:
     name: config-server
@@ -10,5 +13,3 @@ spring:
           uri: https://github.com/Marcklen/plataforma-fly-configs
           default-label: main
           search-paths: .
-server:
-  port: 8088
