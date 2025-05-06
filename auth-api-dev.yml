@@ -31,3 +31,10 @@ usuario:
   api:
     url: http://localhost:8081/usuario
 
+spring:
+  session:
+    store-type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
