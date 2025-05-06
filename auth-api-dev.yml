@@ -21,6 +21,17 @@ spring:
     console:
       enabled: true
       path: /h2-console
+  
+  session:
+    store-type: redis
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  cache:
+    type: redis
 
 auth:
   jwt:
@@ -30,11 +41,3 @@ auth:
 usuario:
   api:
     url: http://localhost:8081/usuario
-
-spring:
-  session:
-    store-type: redis
-  data:
-    redis:
-      host: localhost
-      port: 6379
