@@ -4,19 +4,28 @@ server:
 spring:
   application:
     name: gateway-api
+
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: usuario-api
-            uri: http://localhost:8081
-            predicates:
-              - Path=/api/usuario/**
-            filters:
-              - StripPrefix=1
-          - id: auth-api
-            uri: http://localhost:8082
-            predicates:
-              - Path=/api/auth/**
-            filters:
-              - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: usuario-api
+          uri: lb://usuario-api
+          predicates:
+            - Path=/usuario/**
+        - id: auth-api
+          uri: lb://auth-api
+          predicates:
+            - Path=/auth/**
+        - id: email-consumer-api
+          uri: lb://email-consumer-api
+          predicates:
+            - Path=/email/**
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
