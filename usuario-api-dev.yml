@@ -38,3 +38,12 @@ spring:
 auth:
   jwt:
     secret: vK*FzP!7s9WqBzE%aLx#RtG2nUj@XhCm
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
