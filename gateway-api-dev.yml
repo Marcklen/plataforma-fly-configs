@@ -16,15 +16,27 @@ spring:
           uri: lb://usuario-api
           predicates:
             - Path=/usuario/**
+          filters:
+            - StripPrefix=1
         - id: auth-api
           uri: lb://auth-api
           predicates:
             - Path=/auth/**
+          filters:
+            - StripPrefix=1
         - id: email-consumer-api
           uri: lb://email-consumer-api
           predicates:
             - Path=/email/**
-  
+          filters:
+            - StripPrefix=1
+        - id: email-producer-api
+          uri: lb://email-producer-api
+          predicates:
+            - Path=/email-producer/**
+          filters:
+            - StripPrefix=1
+
 eureka:
   client:
     register-with-eureka: true
