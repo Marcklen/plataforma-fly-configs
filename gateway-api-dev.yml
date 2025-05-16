@@ -33,21 +33,21 @@ spring:
             - Path=/email-producer/**
 
       # CORS Configuração Glboal
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins:
-              - "http://localhost:4200"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
-            maxAge: 3600
+      # globalcors:
+      #   cors-configurations:
+      #     '[/**]':
+      #       allowedOrigins:
+      #         - "http://localhost:4200"
+      #       allowedMethods:
+      #         - GET
+      #         - POST
+      #         - PUT
+      #         - DELETE
+      #         - OPTIONS
+      #       allowedHeaders:
+      #         - "*"
+      #       allowCredentials: true
+      #       maxAge: 3600
 
 eureka:
   client:
