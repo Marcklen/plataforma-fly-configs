@@ -27,7 +27,8 @@ spring:
 
   data:
     redis:
-      host: localhost
+      # host: localhost
+      host: redis-dev
       port: 6379
 
   cache:
@@ -40,15 +41,16 @@ auth:
 
 usuario:
   api:
-    url: http://localhost:8081/usuario
+    # url: http://localhost:8081/usuario
+    url: http://usuario-api:8081/usuario
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
-      # defaultZone: http://host.docker.internal:8761/eureka
+      # defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
 
   instance:
     prefer-ip-address: true
