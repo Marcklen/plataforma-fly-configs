@@ -27,7 +27,6 @@ spring:
 
   data:
     redis:
-      # host: localhost
       host: redis-dev
       port: 6379
 
@@ -41,7 +40,6 @@ auth:
 
 usuario:
   api:
-    # url: http://localhost:8081/usuario
     url: http://usuario-api:8081/usuario
 
 eureka:
@@ -49,7 +47,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      # defaultZone: http://localhost:8761/eureka
       defaultZone: http://eureka-server:8761/eureka
 
   instance:
