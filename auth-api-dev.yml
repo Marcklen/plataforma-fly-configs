@@ -65,3 +65,6 @@ management:
     export:
       prometheus:
         enabled: true
+  health:
+    rabbit:
+      enabled: false
