@@ -68,3 +68,8 @@ management:
   health:
     rabbit:
       enabled: false
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.http.client: DEBUG
