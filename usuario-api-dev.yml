@@ -34,7 +34,7 @@ spring:
   cache:
     type: redis
   
-  rabbit:
+  rabbitmq:
     host: rabbitmq
     port: 5672
     username: guest
