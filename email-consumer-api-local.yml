@@ -6,7 +6,7 @@ spring:
     name: email-consumer-api
 
   kafka:
-    bootstrap-servers: kafka:9092
+    bootstrap-servers: localhost:9092
     consumer:
       group-id: email-group
       auto-offset-reset: earliest
@@ -14,7 +14,7 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       
   rabbitmq:
-    host: rabbitmq
+    host: localhost
     port: 5672
     username: guest
     password: guest
@@ -36,7 +36,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 
   instance:
     prefer-ip-address: true

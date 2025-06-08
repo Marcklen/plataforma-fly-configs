@@ -1,12 +1,12 @@
 server:
   port: 8083
-  
+
 spring:
   application:
     name: email-producer-api
 
   rabbitmq:
-    host: rabbitmq
+    host: localhost
     port: 5672
     username: guest
     password: guest
@@ -23,7 +23,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 
   instance:
     prefer-ip-address: true
