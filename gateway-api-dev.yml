@@ -55,3 +55,7 @@ management:
     export:
       prometheus:
         enabled: true
+
+auth:
+  jwt:
+    secret: vK*FzP!7s9WqBzE%aLx#RtG2nUj@XhCm
