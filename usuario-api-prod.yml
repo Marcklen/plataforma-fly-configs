@@ -4,3 +4,72 @@ server:
 spring:
   application:
     name: usuario-api
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${DB_NAME:plataforma_fly}
+    username: ${DB_USER:plataforma}
+    password: ${DB_PASSWORD:imagine-uma-senha-forte-aqui}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # depois podemos mudar para validate/none
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  # H2 desabilitado em prod
+  h2:
+    console:
+      enabled: false
+
+  session:
+    store-type: redis
+
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+
+  cache:
+    type: redis
+  
+  rabbitmq:
+    host: ${RABBIT_HOST:rabbitmq}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+
+auth:
+  jwt:
+    secret: ${AUTH_JWT_SECRET:vK*FzP!7s9WqBzE%aLx#RtG2nUj@XhCm}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URL:http://eureka-server:8761/eureka}
+
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  health:
+    rabbit:
+      enabled: false
+
+logging:
+  level:
+    org.springframework.security: INFO

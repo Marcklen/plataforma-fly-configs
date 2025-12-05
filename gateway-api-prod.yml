@@ -4,3 +4,58 @@ server:
 spring:
   application:
     name: gateway-api
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: usuario-api
+          uri: lb://usuario-api
+          predicates:
+            - Path=/usuario/**
+
+        - id: auth-api
+          uri: lb://auth-api
+          predicates:
+            - Path=/auth/**
+
+        - id: email-consumer-api
+          uri: lb://email-consumer-api
+          predicates:
+            - Path=/email/**
+
+        - id: email-producer-api
+          uri: lb://email-producer-api
+          predicates:
+            - Path=/email-producer/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URL:http://eureka-server:8761/eureka}
+
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+auth:
+  jwt:
+    secret: ${AUTH_JWT_SECRET:vK*FzP!7s9WqBzE%aLx#RtG2nUj@XhCm}
