@@ -6,10 +6,10 @@ spring:
     name: email-producer-api
 
 rabbitmq:
-  host: ${RABBITMQ_HOST:localhost}
-  port: ${RABBITMQ_PORT:5672}
-  username: ${RABBITMQ_USERNAME:guest}
-  password: ${RABBITMQ_PASSWORD:guest}
+  host: rabbitmq
+  port: 5672
+  username: guest
+  password: guest
 
 cloud:
   confuig:
